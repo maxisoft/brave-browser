@@ -2,13 +2,13 @@ name: Brave Build
 
 on:
   push:
-    branches: *
+    branches: '*'
 
 jobs:
   build:
     runs-on: windows-latest
     
-  steps:
+    steps:
     - uses: actions/checkout@v2
       timeout-minutes: 3
       
