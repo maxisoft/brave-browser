@@ -1,0 +1,35 @@
+name: Brave Build
+
+on:
+  push:
+    branches: *
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+  steps:
+    - uses: actions/checkout@v2
+      timeout-minutes: 3
+      
+    - name: brave
+      run: |
+            Set-PSDebug -Trace 1
+            cd brave-browser
+            npm install
+            npm run init
+            npm run build Release -- Static
+      shell: pwsh
+      timeout-minutes: 300
+      
+    - name: Locate brave dll
+      run: Get-Childitem –Path "$((Get-Item .).FullName)" -Include chrome.dll -Recurse -ErrorAction SilentlyContinue
+      shell: pwsh
+      timeout-minutes: 5
+    
+    - name: Create artifact
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: brave
+        path: ./
