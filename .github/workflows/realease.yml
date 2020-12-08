@@ -15,7 +15,6 @@ jobs:
     - name: brave
       run: |
             Set-PSDebug -Trace 1
-            cd brave-browser
             npm install
             npm run init
             npm run build Release -- Static
