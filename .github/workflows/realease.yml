@@ -11,13 +11,21 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       timeout-minutes: 3
+  
+  
+    - name: enable ntfs compression
+      run: |
+            choco install Carbon
+            Import-Module 'Carbon'
+            Enable-NtfsCompression -Path "$((Get-Item .).FullName)" -Recurse true 
+      shell: pwsh
       
     - name: brave
       run: |
             Set-PSDebug -Trace 1
             npm install
             npm run init
-            npm run build Release -- Static
+            npm run build Release
       shell: pwsh
       timeout-minutes: 300
       
