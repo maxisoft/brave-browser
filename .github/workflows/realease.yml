@@ -17,7 +17,7 @@ jobs:
       run: |
             choco install Carbon
             Import-Module 'Carbon'
-            Enable-NtfsCompression -Path "$((Get-Item .).FullName)" -Recurse true 
+            Enable-NtfsCompression -Path "$((Get-Item .).FullName)" -Recurse 
       shell: pwsh
       
     - name: brave
