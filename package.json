@@ -39,14 +39,14 @@
         "dir": "src/brave",
         "branch": "master",
         "repository": {
-          "url": "https://github.com/brave/brave-core.git"
+          "url": "https://github.com/maxisoft/brave-core.git"
         }
       }
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brave/brave-browser.git"
+    "url": "git+https://github.com/maxisoft/brave-browser.git"
   },
   "author": {
     "name": "Brave Software <support@brave.com>"
